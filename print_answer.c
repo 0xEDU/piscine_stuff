@@ -6,11 +6,12 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:36:34 by etachott          #+#    #+#             */
-/*   Updated: 2022/07/16 18:56:13 by etachott         ###   ########.fr       */
+/*   Updated: 2022/07/16 19:00:36 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
 void	colocar_linha(char a, char b, char c, char d);
 
 void	conversor_de_matriz(int p[4][4], char c[4][4]);
@@ -20,6 +21,7 @@ void	print_answer(int a[4][4]);
 void	print_answer(int a[4][4])
 {
 	char	c[4][4];
+
 	conversor_de_matriz(a, c);
 	colocar_linha(c[0][0], c[0][1], c[0][2], c[0][3]);
 	colocar_linha(c[1][0], c[1][1], c[1][2], c[2][3]);
@@ -41,15 +43,15 @@ void	colocar_linha(char a, char b, char c, char d)
 
 void	conversor_de_matriz(int p[4][4], char c[4][4])
 {
-	int i;
-	int j;
-	int n;
+	int	i;
+	int	j;
+	int	n;
 
 	i = 0;
 	while (i < 4)
 	{
 		j = 0;
-		while(j < 4)
+		while (j < 4)
 		{
 			n = p[i][j];
 			if (n >= 1 && n <= 4)
@@ -61,4 +63,3 @@ void	conversor_de_matriz(int p[4][4], char c[4][4])
 		i++;
 	}
 }
-
