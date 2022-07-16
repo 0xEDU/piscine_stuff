@@ -6,7 +6,7 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:36:34 by etachott          #+#    #+#             */
-/*   Updated: 2022/07/16 19:00:36 by etachott         ###   ########.fr       */
+/*   Updated: 2022/07/16 19:04:04 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	print_answer(int a[4][4])
 
 	conversor_de_matriz(a, c);
 	colocar_linha(c[0][0], c[0][1], c[0][2], c[0][3]);
-	colocar_linha(c[1][0], c[1][1], c[1][2], c[2][3]);
-	colocar_linha(c[2][0], c[2][1], c[2][2], c[1][3]);
+	colocar_linha(c[1][0], c[1][1], c[1][2], c[1][3]);
+	colocar_linha(c[2][0], c[2][1], c[2][2], c[2][3]);
 	colocar_linha(c[3][0], c[3][1], c[3][2], c[3][3]);
 }
 
