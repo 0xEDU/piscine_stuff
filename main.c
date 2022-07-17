@@ -6,7 +6,7 @@
 /*   By: lphelipe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 15:27:57 by lphelipe          #+#    #+#             */
-/*   Updated: 2022/07/17 20:31:49 by etachott         ###   ########.fr       */
+/*   Updated: 2022/07/17 20:36:00 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	answer_h_1_4_or_4_1(int h[4][2], int a[4][4]);
 void	answer_v_1_4_or_4_1(int v[4][2], int a[4][4]);
 void	answer_h_1_2_or_2_1(int h[4][2], int a[4][4]);
 void	answer_v_1_2_or_2_1(int v[4][2], int a[4][4]);
-
 void	answer_h_1_3_or_3_1(int h[4][2], int a[4][4]);
 void	answer_v_1_3_or_3_1(int v[4][2], int a[4][4]);
 void	answer_h_2_3_or_3_2(int h[4][2], int a[4][4]);
@@ -38,6 +37,7 @@ void	answer_additional_combinations(int h[4][2], int v[4][2], int a[4][4]);
 void	answer_two_two(int h[4][2], int v[4][2], int a[4][4]);
 void	fill_varejao(int a[4][4]);
 int		check_errors(char p[16], char *argv[], int argc);
+int		is_complete(int a[4][4]);
 
 int	main(int argc, char *argv[])
 {
