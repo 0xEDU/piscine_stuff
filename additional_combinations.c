@@ -6,11 +6,9 @@
 /*   By: efrangio <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 10:49:07 by efrangio          #+#    #+#             */
-/*   Updated: 2022/07/17 15:35:04 by efrangio         ###   ########.fr       */
+/*   Updated: 2022/07/17 18:00:12 by efrangio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 // verifica as combinações adicionais possíveis de 2 e 3 vertical
 // 1, 2 e 3 na primeira casa
@@ -308,7 +306,7 @@ void	answer_v_1_3_additionals(int v[4][2], int a[4][4])
 		}
 		if ((v[i][0] == 1 && v[i][1] == 3) && a[3][i] == 1)
 		{
-			a[1][i] = 1;
+			a[1][i] = 2;
 			a[2][i] = 3;
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: lphelipe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 15:27:57 by lphelipe          #+#    #+#             */
-/*   Updated: 2022/07/17 15:37:10 by efrangio         ###   ########.fr       */
+/*   Updated: 2022/07/17 18:00:35 by efrangio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	answer_h_3_1_additionals(int h[4][2], int a[4][4]);
 void	answer_v_1_3_additionals(int v[4][2], int a[4][4]);
 void	answer_v_3_1_additionals(int v[4][2], int a[4][4]);
 void	answer_additional_combinations(int h[4][2], int v[4][2], int a[4][4]);
+void	answer_two_two(int h[4][2], int v[4][2], int a[4][4]);
 void    fill_varejao(int a[4][4]);
 
 int main(int argc, char *argv[])
@@ -69,6 +70,7 @@ void	play(int h[4][2], int v[4][2], int a[4][4])
 	{
 		//printf("Brutal iteration number %d\n", brutal_iterations);
 		answer_additional_combinations(h, v, a);
+		answer_two_two(h, v, a);
 		fill_varejao(a);
 		brutal_iterations++;
 	}
