@@ -6,24 +6,24 @@
 /*   By: lphelipe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 15:27:57 by lphelipe          #+#    #+#             */
-/*   Updated: 2022/07/17 20:04:49 by etachott         ###   ########.fr       */
+/*   Updated: 2022/07/17 20:31:49 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
 void	print_answer(int a[4][4]);
 void	convert_argv_to_char_array(char *argv[], char p[16]);
 void	assign_parameters(int h[4][2], int v[4][2], char p[16]);
 void	clean_matrix(int a[4][4]);
 void	play(int h[4][2], int v[4][2], int a[4][4]);
-void	answer_h_1_4_or_4_1(int h[4][2],int a[4][4]);
+void	answer_h_1_4_or_4_1(int h[4][2], int a[4][4]);
 void	answer_v_1_4_or_4_1(int v[4][2], int a[4][4]);
 void	answer_h_1_2_or_2_1(int h[4][2], int a[4][4]);
-void	answer_v_1_2_or_2_1(int	v[4][2], int a[4][4]);
+void	answer_v_1_2_or_2_1(int v[4][2], int a[4][4]);
+
 void	answer_h_1_3_or_3_1(int h[4][2], int a[4][4]);
-void	answer_v_1_3_or_3_1(int	v[4][2], int a[4][4]);
+void	answer_v_1_3_or_3_1(int v[4][2], int a[4][4]);
 void	answer_h_2_3_or_3_2(int h[4][2], int a[4][4]);
 void	answer_v_2_3_or_3_2(int v[4][2], int a[4][4]);
 void	answer_v_2_3_additionals(int v[4][2], int a[4][4]);
@@ -36,14 +36,13 @@ void	answer_v_1_3_additionals(int v[4][2], int a[4][4]);
 void	answer_v_3_1_additionals(int v[4][2], int a[4][4]);
 void	answer_additional_combinations(int h[4][2], int v[4][2], int a[4][4]);
 void	answer_two_two(int h[4][2], int v[4][2], int a[4][4]);
-void    fill_varejao(int a[4][4]);
-int	check_errors(char p[16], char *argv[], int argc);
-int is_complete(int a[4][4]);
+void	fill_varejao(int a[4][4]);
+int		check_errors(char p[16], char *argv[], int argc);
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-	int 	h[4][2];
-	int 	v[4][2];
+	int		h[4][2];
+	int		v[4][2];
 	char	p[16];
 	int		a[4][4];
 
@@ -79,10 +78,8 @@ void	play(int h[4][2], int v[4][2], int a[4][4])
 	answer_v_1_3_or_3_1(v, a);
 	answer_h_2_3_or_3_2(h, a);
 	answer_v_2_3_or_3_2(v, a);
-
 	while (brutal_iterations < 5)
 	{
-		//printf("Brutal iteration number %d\n", brutal_iterations);
 		answer_additional_combinations(h, v, a);
 		answer_two_two(h, v, a);
 		fill_varejao(a);
@@ -104,7 +101,7 @@ void	answer_additional_combinations(int h[4][2], int v[4][2], int a[4][4])
 	answer_v_3_1_additionals(v, a);
 }
 
-void	answer_h_1_4_or_4_1(int h[4][2],int a[4][4])
+void	answer_h_1_4_or_4_1(int h[4][2], int a[4][4])
 {
 	int	i;
 
@@ -175,7 +172,7 @@ void	answer_h_1_2_or_2_1(int h[4][2], int a[4][4])
 	}
 }
 
-void	answer_v_1_2_or_2_1(int	v[4][2], int a[4][4])
+void	answer_v_1_2_or_2_1(int v[4][2], int a[4][4])
 {
 	int	i;
 
@@ -211,7 +208,7 @@ void	answer_h_1_3_or_3_1(int h[4][2], int a[4][4])
 	}
 }
 
-void	answer_v_1_3_or_3_1(int	v[4][2], int a[4][4])
+void	answer_v_1_3_or_3_1(int v[4][2], int a[4][4])
 {
 	int	i;
 
@@ -241,7 +238,7 @@ void	answer_h_2_3_or_3_2(int h[4][2], int a[4][4])
 	}
 }
 
-void	answer_v_2_3_or_3_2(int	v[4][2], int a[4][4])
+void	answer_v_2_3_or_3_2(int v[4][2], int a[4][4])
 {
 	int	i;
 
@@ -255,4 +252,3 @@ void	answer_v_2_3_or_3_2(int	v[4][2], int a[4][4])
 		i++;
 	}
 }
-
