@@ -1,6 +1,11 @@
+#include <unistd.h>
+
 void	answer_h_to_one_at_first_or_last(int h[4][2], int a[4][4]);
 void	answer_v_to_one_at_first_or_last(int v[4][2], int a[4][4]);
 void	answer_h_for_2_in_first_or_last_position(int h[4][2], int a[4][4]);
+void	answer_v_for_2_in_first_or_last_position(int h[4][2], int a[4][4]);
+void	answer_h_for_4_and_1_in_the_middle(int h[4][2], int a[4][4]);
+int	try_h_in_the_edges(int a[4][4], int l, int n1, int n2);
 void	print_answer(int a[4][4]);
 int	has_repetitions(int a[4][4]);
 int	has_v_repetition(int a[4][4]);
@@ -13,6 +18,8 @@ void	answer_two_two(int h[4][2], int v[4][2], int a[4][4])
 	answer_h_to_one_at_first_or_last(h, a);
 	answer_v_to_one_at_first_or_last(v, a);
 	answer_h_for_2_in_first_or_last_position(h, a);
+	answer_v_for_2_in_first_or_last_position(h, a);
+	answer_h_for_4_and_1_in_the_middle(h, a);
 }
 
 void	answer_h_to_one_at_first_or_last(int h[4][2], int a[4][4])
@@ -74,24 +81,25 @@ void	answer_h_for_2_in_first_or_last_position(int h[4][2], int a[4][4])
 	l = 0;
 	while (l < 4)
 	{
-		if (h[l][0] == 2 && h[l][1] == 2)
-		{
-			if (a[l][0] == 2 || a[l][3] == 2)
+		if (a[l][1] == 0 && a[l][2] == 0)
+			if (h[l][0] == 2 && h[l][1] == 2)
 			{
-				a[l][1] = 1;
-				a[l][2] = 4;
-				if (has_repetitions(a) != 0)
+				if (a[l][0] == 2 || a[l][3] == 2)
 				{
-					a[l][1] = 4;
-					a[l][2] = 1;
-				}
-				if (has_repetitions(a) != 0)
-				{
-					a[l][1] = 0;
-					a[l][2] = 0;
+					a[l][1] = 1;
+					a[l][2] = 4;
+					if (has_repetitions(a) != 0)
+					{
+						a[l][1] = 4;
+						a[l][2] = 1;
+					}
+					if (has_repetitions(a) != 0)
+					{
+						a[l][1] = 0;
+						a[l][2] = 0;
+					}
 				}
 			}
-		}
 		l++;
 	}
 }
@@ -103,25 +111,73 @@ void	answer_v_for_2_in_first_or_last_position(int v[4][2], int a[4][4])
 	c = 0;
 	while (c < 4)
 	{
-		if (v[c][0] == 2 && v[c][1] == 2)
-		{
-			if (a[0][c] == 2 || a[3][c] == 2)
+		if (a[1][c] == 0 && a[2][c] == 0)
+			if (v[c][0] == 2 && v[c][1] == 2)
 			{
-				a[1][c] = 1;
-				a[2][c] = 4;
-				if (has_repetitions(a) != 0)
+				if (a[0][c] == 2 || a[3][c] == 2)
 				{
-					a[1][c] = 4;
-					a[2][c] = 1;
-				}
-				if (has_repetitions(a) != 0)
-				{
-					a[1][c] = 0;
-					a[2][c] = 0;
+					a[1][c] = 1;
+					a[2][c] = 4;
+					if (has_repetitions(a) != 0)
+					{
+						a[1][c] = 4;
+						a[2][c] = 1;
+					}
+					if (has_repetitions(a) != 0)
+					{
+						a[1][c] = 0;
+						a[2][c] = 0;
+					}
 				}
 			}
-		}
 		c++;
+	}
+}
+
+void	answer_h_for_4_and_1_in_the_middle(int h[4][2], int a[4][4])
+{
+	int l;
+	
+	l = 0;
+	while (l < 4)
+	{
+		if (h[l][0] == 2 && h[l][1] == 2)
+		{
+			if (a[l][1] == 4 && a[l][2] == 1)
+				if (a[l][0] == 0 && a[l][3] == 0)
+					if (try_h_in_the_edges(a, l, 2, 3) == 0)
+						try_h_in_the_edges(a, l, 3, 2);
+			if(a[l][1] == 1 && a[l][2] == 4)
+				if (a[l][0] == 0 && a[l][3] == 0)
+					if (try_h_in_the_edges(a, l, 2, 3) == 0)
+						try_h_in_the_edges(a, l, 3, 2);	
+		}
+		l++;
+	}
+}
+
+int	try_h_in_the_edges(int a[4][4], int l, int n1, int n2)
+{
+	a[l][0] = n1;
+	a[l][3] = n2;
+	if (has_repetitions(a) != 0)
+	{
+		a[l][0] = n2;
+		a[l][3] = n1;
+	}
+	else
+	{
+		return 1;
+	}
+	if (has_repetitions(a) != 0)
+	{
+		a[l][0] = 0;
+		a[l][3] = 0;
+		return 0;
+	}
+	else
+	{
+		return 1;
 	}
 }
 
