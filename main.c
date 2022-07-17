@@ -6,7 +6,7 @@
 /*   By: lphelipe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 15:27:57 by lphelipe          #+#    #+#             */
-/*   Updated: 2022/07/17 18:31:09 by etachott         ###   ########.fr       */
+/*   Updated: 2022/07/17 20:04:49 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	answer_additional_combinations(int h[4][2], int v[4][2], int a[4][4]);
 void	answer_two_two(int h[4][2], int v[4][2], int a[4][4]);
 void    fill_varejao(int a[4][4]);
 int	check_errors(char p[16], char *argv[], int argc);
+int is_complete(int a[4][4]);
 
 int main(int argc, char *argv[])
 {
@@ -52,11 +53,16 @@ int main(int argc, char *argv[])
 		return (0);
 	}
 	convert_argv_to_char_array(argv, p);
-	if (check_errors(p, argv, argc) == 1)
+	if (check_errors(p, argv, argc) == 0)
 		return (0);
 	assign_parameters(h, v, p);
 	clean_matrix(a);
 	play(h, v, a);
+	if (is_complete(a) == 0)
+	{
+		write(1, "Error\n", 6);
+		return (1);
+	}
 	print_answer(a);
 }
 
@@ -80,6 +86,8 @@ void	play(int h[4][2], int v[4][2], int a[4][4])
 		answer_additional_combinations(h, v, a);
 		answer_two_two(h, v, a);
 		fill_varejao(a);
+		if (is_complete(a) != 0)
+			return ;
 		brutal_iterations++;
 	}
 }
