@@ -6,10 +6,9 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 16:06:48 by etachott          #+#    #+#             */
-/*   Updated: 2022/07/17 18:09:45 by etachott         ###   ########.fr       */
+/*   Updated: 2022/07/17 18:33:46 by etachott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
 #include <unistd.h>
 
 int	detect_error(char p[16]);
