@@ -6,11 +6,12 @@
 /*   By: lphelipe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 15:27:57 by lphelipe          #+#    #+#             */
-/*   Updated: 2022/07/16 20:13:57 by lphelipe         ###   ########.fr       */
+/*   Updated: 2022/07/17 15:37:10 by efrangio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
 void	print_answer(int a[4][4]);
 void	convert_argv_to_char_array(char *argv[], char p[16]);
@@ -25,6 +26,16 @@ void	answer_h_1_3_or_3_1(int h[4][2], int a[4][4]);
 void	answer_v_1_3_or_3_1(int	v[4][2], int a[4][4]);
 void	answer_h_2_3_or_3_2(int h[4][2], int a[4][4]);
 void	answer_v_2_3_or_3_2(int v[4][2], int a[4][4]);
+void	answer_v_2_3_additionals(int v[4][2], int a[4][4]);
+void	answer_v_3_2_additionals(int v[4][2], int a[4][4]);
+void	answer_h_2_3_additionals(int h[4][2], int a[4][4]);
+void	answer_h_3_2_additionals(int h[4][2], int a[4][4]);
+void	answer_h_1_3_additionals(int h[4][2], int a[4][4]);
+void	answer_h_3_1_additionals(int h[4][2], int a[4][4]);
+void	answer_v_1_3_additionals(int v[4][2], int a[4][4]);
+void	answer_v_3_1_additionals(int v[4][2], int a[4][4]);
+void	answer_additional_combinations(int h[4][2], int v[4][2], int a[4][4]);
+void    fill_varejao(int a[4][4]);
 
 int main(int argc, char *argv[])
 {
@@ -42,6 +53,9 @@ int main(int argc, char *argv[])
 
 void	play(int h[4][2], int v[4][2], int a[4][4])
 {
+	int	brutal_iterations;
+
+	brutal_iterations = 0;
 	answer_h_1_4_or_4_1(h, a);
 	answer_v_1_4_or_4_1(v, a);
 	answer_h_1_2_or_2_1(h, a);
@@ -50,6 +64,26 @@ void	play(int h[4][2], int v[4][2], int a[4][4])
 	answer_v_1_3_or_3_1(v, a);
 	answer_h_2_3_or_3_2(h, a);
 	answer_v_2_3_or_3_2(v, a);
+
+	while (brutal_iterations < 5)
+	{
+		//printf("Brutal iteration number %d\n", brutal_iterations);
+		answer_additional_combinations(h, v, a);
+		fill_varejao(a);
+		brutal_iterations++;
+	}
+}
+
+void	answer_additional_combinations(int h[4][2], int v[4][2], int a[4][4])
+{
+	answer_v_2_3_additionals(v, a);
+	answer_v_3_2_additionals(v, a);
+	answer_h_2_3_additionals(h, a);
+	answer_h_3_2_additionals(h, a);
+	answer_h_1_3_additionals(h, a);
+	answer_h_3_1_additionals(h, a);
+	answer_v_1_3_additionals(v, a);
+	answer_v_3_1_additionals(v, a);
 }
 
 void	answer_h_1_4_or_4_1(int h[4][2],int a[4][4])
