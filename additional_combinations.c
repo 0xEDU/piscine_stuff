@@ -6,7 +6,7 @@
 /*   By: efrangio <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 10:49:07 by efrangio          #+#    #+#             */
-/*   Updated: 2022/07/17 21:10:39 by efrangio         ###   ########.fr       */
+/*   Updated: 2022/07/17 21:37:06 by efrangio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	answer_v_2_3_additionals_1_2_3(int v[4][2], int a[4][4], int i)
 //3, 2:  [2, 3, 4, 1] 
 void	answer_v_3_2_additionals(int v[4][2], int a[4][4])
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < 4)
@@ -113,9 +113,7 @@ void	answer_v_3_2_additionals_1_2_3(int v[4][2], int a[4][4], int i)
 		a[0][i] = 1;
 		a[1][i] = 2;
 	}
-	
 }
-
 
 // verifica as combinações adicionais possíveis de 2 e 3 horizontal
 // 1, 2 e 3 na primeira
@@ -171,9 +169,10 @@ void	answer_h_2_3_additionals_1_2_3(int h[4][2], int a[4][4], int i)
 //3, 2:  [1, 2, 4, 3]
 //3, 2:  [1, 3, 4, 2]
 //3, 2:  [2, 3, 4, 1]
+
 void	answer_h_3_2_additionals(int h[4][2], int a[4][4])
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < 4)
@@ -306,7 +305,6 @@ void	answer_h_3_1_additionals_1_2_3(int h[4][2], int a[4][4], int i)
 		a[i][0] = 2;
 		a[i][1] = 1;
 	}
-
 }
 
 // check combinations for 1 and 3 vertical question
@@ -355,7 +353,6 @@ void	answer_v_1_3_additionals_1_2_3(int v[4][2], int a[4][4], int i)
 		a[2][i] = 1;
 		a[3][i] = 2;
 	}
-
 }
 
 // check combinations for 3 and 1 vertical question
@@ -386,6 +383,7 @@ void	answer_v_3_1_additionals(int v[4][2], int a[4][4])
 		i++;
 	}
 }
+
 void	answer_v_3_1_additionals_1_2_3(int v[4][2], int a[4][4], int i)
 {
 	if ((v[i][0] == 3 && v[i][1] == 1) && a[2][i] == 1)
@@ -403,5 +401,4 @@ void	answer_v_3_1_additionals_1_2_3(int v[4][2], int a[4][4], int i)
 		a[0][i] = 2;
 		a[1][i] = 1;
 	}
-
 }
