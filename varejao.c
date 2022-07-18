@@ -6,15 +6,14 @@
 /*   By: etachott <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 20:15:24 by etachott          #+#    #+#             */
-/*   Updated: 2022/07/17 20:21:59 by etachott         ###   ########.fr       */
+/*   Updated: 2022/07/17 21:26:17 by lphelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 void	fill_columns_by_varejao(int a[4][4]);
 void	fill_lines_by_varejao(int a[4][4]);
 void	fill_line_by_varejao(int l[4]);
+void	fill_column(int a[4][4], int c);
 
 void	fill_varejao(int a[4][4])
 {
@@ -37,31 +36,37 @@ void	fill_lines_by_varejao(int a[4][4])
 void	fill_columns_by_varejao(int a[4][4])
 {
 	int	c;
-	int	l;
-	int	soma;
-	int	zerados;
 
 	c = 0;
 	while (c < 4)
 	{
-		l = 0;
-		zerados = 0;
-		soma = 0;
-		while (l < 4)
-		{
-			soma += a[l][c];
-			if (a[l][c] == 0)
-				zerados++;
-			l++;
-		}
-		l = 0;
-		while (l < 4)
-		{
-			if (zerados == 1 && a[l][c] == 0)
-				a[l][c] = 10 - soma;
-			l++;
-		}
+		fill_column(a, c);
 		c++;
+	}
+}
+
+void	fill_column(int a[4][4], int c)
+{
+	int	l;
+	int	soma;
+	int	zerados;
+
+	l = 0;
+	zerados = 0;
+	soma = 0;
+	while (l < 4)
+	{
+		soma += a[l][c];
+		if (a[l][c] == 0)
+			zerados++;
+		l++;
+	}
+	l = 0;
+	while (l < 4)
+	{
+		if (zerados == 1 && a[l][c] == 0)
+			a[l][c] = 10 - soma;
+		l++;
 	}
 }
 
