@@ -6,7 +6,7 @@
 /*   By: lphelipe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 21:43:08 by lphelipe          #+#    #+#             */
-/*   Updated: 2022/07/17 21:43:09 by lphelipe         ###   ########.fr       */
+/*   Updated: 2022/07/17 22:01:15 by lphelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,6 @@ int	column_has_repetition(int a[4][4], int column)
 int	has_h_repetition(int a[4][4])
 {
 	int	l;
-	int	c;
-	int	i;
-	int	counter;
 
 	l = 0;
 	while (l < 4)
